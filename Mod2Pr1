@@ -1,0 +1,80 @@
+/* 
+ * Created by Cody Smith
+ * University Id: 
+ * COS-213
+ * APR-2021
+ * Mod-2
+ * create 3 arrays fill the first two arrays with data and then 
+ * fill the third array with the sums of the indexes of the first two arrays
+ */
+ 
+#include <iostream>
+// this is to allow me to use input and output streams
+#include <cstdlib>
+// this is to allow me to use random()
+using namespace std;
+// allows me to just state that I am using the standard library to not
+// have to constantly use std:: all the time
+
+void Fill_Arrs (int arr1[],int arr2[],int arr3[])
+// The whole point of this function is to fill the first two arrays with random numbers
+// and then add each matching index as the value for that index into the third array
+{
+    
+    int length = 20;
+    // establishes the length for the arrays
+    for (int i = 0; i < length ; i++)
+        // this will iterate through the arrays to fill each index with random numbers
+        // from 1 to 100
+    {
+        arr1[i] = rand() % 100 +1;
+        arr2[i] = rand() % 100 +1;
+        // fills the first two arrays
+    }
+    for (int j = 0; j < length ; j++)
+        // this will add the values in the first two arrays to the third array
+     {
+         arr3[j] = arr1[j] + arr2[j];
+     }
+}
+ int main ()
+ {
+     // initializes all three arrays
+     int arr1[20] = {};
+     int arr2[20] = {};
+     int arr3[20] = {};
+     
+     Fill_Arrs (arr1, arr2, arr3);
+     //passes these arrays into the fill_arr function to full them all and add them together
+     
+     
+     cout << "Array 1 + Array 2 = Array 3" << endl;
+     
+     // creates an output that lets the user know what they are going to see
+     
+    for (int z = 0; z < 20; z++)
+        // itterates through the arrays to print out the values and show the addition
+    {
+        cout << arr1[z] << " + " << arr2[z] << " = " << arr3[z] << endl;
+    }
+    return 0;
+    }
+ 
+
+/*
+The question promt did not say specifically that the first two arrays needed to be filled
+inside of the main function. So to make the code cleaner I only created then inside of the
+main function and then passed them into the Fill_Arrs function to be worked on
+If I were to have to fill them in the main function I would have simply used the same process
+that was used in fill arrs
+
+int length = 20;
+    
+    for (int i = 0; i < length ; i++)
+        
+    {
+        arr1[i] = rand() % 100 +1;
+        arr2[i] = rand() % 100 +1;
+
+and then just have the fill arrs function add the two arrs together as it does in the end
+*/
