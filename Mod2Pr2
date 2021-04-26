@@ -1,0 +1,90 @@
+/* 
+ * Created by Cody Smith
+ * University Id:
+ * COS-213
+ * APR-2021
+ * Mod-2
+ * 
+ * Have two void funtions that take a numerical score from the user and then converts it to a letter grade.
+ * Use the switch statement
+ * getScore should have reference parameter
+ * printGrade should have value parameter
+ */
+ /* psuedocode:
+  * GetScore- Void function that promts the user to enter a numerical score a
+  * This should be easy, use iostream to promt user and then store their input to the variable score
+  * PrintGrade- calculates the course grade and prints it
+  * pass the score variable into several if statements to convert it to a char then use the char value with a switch statement to produce grade
+  * 
+  * 
+  */
+  
+#include <iostream>
+// ensures that iostream is included
+using namespace std;
+// establishes the std namespace to minimize the repetitious inputs
+
+void getScore (int &Score)
+// passes the variable Score in from the main function
+{    
+    cout << "Please enter the letter grade score: " << endl;
+// prompts user to enter the numerical value for the grade
+    cin >> Score;
+// stores the value into the Score variable
+    cout << "You Entered the grade: " << Score << endl;
+// repeats the value that the user input
+    
+}
+void printGrade (int Score)
+// creates a new intance of score in memory
+{
+    char Grade;
+// creates a Char variable to convert the numerical score into since the swtich statement can only take literals or constants
+    if (Score <=59)
+    {
+        Grade = 'F';
+    }
+    if (Score >= 60 && Score <= 69)
+    {
+        Grade = 'D';
+    }
+    if (Score >= 70 && Score <= 79)
+    {
+        Grade = 'C';
+    }
+    if (Score >= 80 && Score <= 89)
+    {
+        Grade = 'B';
+    }
+    if (Score >= 90 && Score <= 100)
+    {
+        Grade = 'A';
+    }
+// Uses several if statements to convert the numerical score int a char variable allowing us to use the switch statement    
+    switch (Grade)
+// uses the char variable to imput into the switch statement allowing for the grade to be printed out
+    {
+        case 'F':
+            cout << "Grade F" ; break;
+        case 'D':
+            cout << "Grade D" ; break;
+        case 'C':
+            cout << "Grade C" ; break;
+        case 'B':
+            cout << "Grade B" ; break;
+        case 'A':
+            cout << "Grade A" ; break;
+// compres the case instance to the occurance inside of grade and then prints out the cooresponding value
+    }
+        
+}
+   
+int main ()
+{
+    int Score;
+    getScore(Score);
+// calles getscore to allow the user to input values which will then get called into print grade
+    printGrade(Score);
+// calls the print grade function to take the score recieved in get score and print out the grade
+    return 0;
+}
